@@ -116,34 +116,8 @@ class grade1 {
     String ls = readEntry("Select a course line number: ");
     
     grade2 g2 = new grade2();
-    boolean done;
-    char ch,ch1;
 
-    done = false;
-    do {
-      g2.print_menu();
-      System.out.print("Type in your option:");
-      System.out.flush();
-      ch = (char) System.in.read();
-      ch1 = (char) System.in.read();
-      switch (ch) {
-        case '1' : g2.add_enrolls(conn,term_in,ls);
-                   break;
-        case '2' : g2.add_course_component(conn,term_in,ls);
-                   break;
-        case '3' : g2.add_scores(conn,term_in,ls);
-                   break;
-        case '4' : g2.modify_score(conn,term_in,ls);
-                   break;
-        case '5' : g2.drop_student(conn,term_in,ls);
-                   break;
-        case '6' : g2.print_report(conn,term_in,ls);
-                   break;
-        case 'q' : done = true;
-                   break;
-        default  : System.out.println("Type in option again");
-      }
-    } while (!done);
+    
 
   }
 
