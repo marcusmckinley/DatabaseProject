@@ -25,8 +25,10 @@ class gradebook {
         return;
       }
     String user, pass;
-    user = readEntry("userid  : ");
-    pass = readEntry("password: ");
+    // user = readEntry("userid  : ");
+    // pass = readEntry("password: ");
+    user = "mmckinle";
+    pass = "mm129663";
 
     //  The following line was modified by Prof. Marling to work on prime
 
