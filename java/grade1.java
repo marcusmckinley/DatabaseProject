@@ -158,10 +158,14 @@ class grade1 {
     Statement stmt = conn.createStatement (); 
     ResultSet rset = stmt.executeQuery(query);
     System.out.println("");
+    System.out.println(rset + "\n");
     while (rset.next ()) { 
       System.out.println(rset.getString(1) + "   " +
                          rset.getString(2) + "   " +
-                         rset.getString(3));
+                         rset.getString(3) + "   " +
+                         rset.getString(4) + "   " +
+                         rset.getString(5) + "   " +
+                         rset.getString(6) + "   " );
     } 
   }
 
