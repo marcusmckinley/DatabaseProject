@@ -172,6 +172,11 @@ class grade1 {
     }
 
     System.out.println("");
+    for (int i = 1; i < 200; i++) {
+      System.out.print("-");
+    }
+    System.out.println("");
+    
     while (rset.next()) {
       for (int i = 1; i <= columnsNumber; i++) {
           String columnValue = rset.getString(i);
