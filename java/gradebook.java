@@ -49,7 +49,7 @@ class gradebook {
                    break;
         case '3' : g1.delete_fighter(conn);
                    break;
-        case '4' : g1.add_catalog(conn);
+        case '4' : g1.update_fighter(conn);
                    break;
         case 'q' : done = true;
                    break;

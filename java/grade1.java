@@ -15,31 +15,99 @@ class grade1 {
     System.out.println("(1) Display Fighter");
     System.out.println("(2) Add Fighter");
     System.out.println("(3) Delete Fighter");
-    System.out.println("(4) Select Course");
+    System.out.println("(4) Update Fighter");
     System.out.println("(q) Quit\n");
   }
 
-  void add_catalog(Connection conn) 
+  void update_fighter(Connection conn) 
     throws SQLException, IOException {
-         
-    Statement stmt = conn.createStatement(); 
 
-    String cnum   = readEntry("Course Number: ");
-    String ctitle = readEntry("Course Title : ");
-    String query = "insert into catalog values (" +
-            "'" + cnum + "','" + ctitle + "')";
-    try {
-      int nrows = stmt.executeUpdate(query);
-    } catch (SQLException e) {
-        System.out.println("Error Adding Catalog Entry");
-        while (e != null) {
-          System.out.println("Message     : " + e.getMessage());
-          e = e.getNextException();
-        }
-        return;
+    boolean done;
+    String column_name, new_val, nickname;
+
+    done = false;
+    do {
+      System.out.println("      What Do You Want To Update?\n");
+      System.out.println("(1) Fighter Nickname");
+      System.out.println("(2) Fighter First Name");
+      System.out.println("(3) Fighter Last Name");
+      System.out.println("(4) Fighter Wins");
+      System.out.println("(5) Fighter Losses");
+      System.out.println("(6) Fighter Draw");
+      System.out.println("(7) Fighter No Contest");
+      System.out.println("(q) Quit\n");
+      System.out.print("Type in your option:");
+      System.out.flush();
+      ch = (char) System.in.read();
+      ch1 = (char) System.in.read();
+      switch (ch) {
+        case '1' : 
+          column_name = "nickname";
+          System.out.println("Fighter's current nickname: ");
+          nickname = System.in.read();
+          System.out.println("New Nickname: ");
+          new_val = System.in.read();
+          break;
+        case '2' : 
+          column_name = "fname";
+          System.out.println("Fighter's current nickname: ");
+          nickname = System.in.read();
+          System.out.println("New First Name: ");
+          new_val = System.in.read();
+          break;
+        case '3' : 
+          column_name = "lname";
+          System.out.println("Fighter's current nickname: ");
+          nickname = System.in.read();
+          System.out.println("New Last Name: ");
+          new_val = System.in.read();
+          break;
+        case '4' : 
+          column_name = "wins";
+          System.out.println("Fighter's current nickname: ");
+          nickname = System.in.read();
+          System.out.println("How many wins: ");
+          new_val = System.in.read();
+          break;
+        case '5' : 
+          column_name = "losses";
+          System.out.println("Fighter's current nickname: ");
+          nickname = System.in.read();
+          System.out.println("How many losses: ");
+          new_val = System.in.read();
+          break;
+        case '6' : 
+          column_name = "draw";
+          System.out.println("Fighter's current nickname: ");
+          nickname = System.in.read();
+          System.out.println("How many draws: ");
+          new_val = System.in.read();
+          break;
+        case '7' : 
+          column_name = "no_contest";
+          System.out.println("Fighter's current nickname: ");
+          nickname = System.in.read();
+          System.out.println("How many no contests: ");
+          new_val = System.in.read();
+          break;
+        case 'q' : done = true;
+                   break;
+        default  : System.out.println("Type in option again");
       }
+    } while (!done);
+
+    String query = "update FIGHTER set " + column_name + " = '" + new_val + "' where nickname = '" + nickname + "'";
+
+    System.out.println(query + "\n");    
+    Statement stmt = conn.createStatement (); 
+    try {
+      stmt.executeUpdate(query);
+    } catch (SQLException e) {
+      System.out.println("FIGHTER was not updated! Failure!");
+      return;
+    }
+    System.out.println("FIGHTER was updated! Success!");
     stmt.close();
-    System.out.println("Added Catalog Entry");
   }
 
   void add_fighter(Connection conn) 
