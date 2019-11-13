@@ -55,8 +55,8 @@ class grade1 {
     String no_contest = readEntry("No Contest: ");
 
     String query = "insert into FIGHTER values (" +
-            "'" + nickname + "'," + champion_status + "," + 
-            "'" + fname + "','" + lname + "," + 
+            "'" + nickname + "'," + "'" + champion_status + "'" + "," + 
+            "'" + fname + "','" + lname + "'," + 
             wins + "," + losses + "," + draw + "," + no_contest + ")";
 
     System.out.println(query + "\n");    
