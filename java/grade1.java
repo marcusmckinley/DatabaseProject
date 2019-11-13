@@ -14,7 +14,7 @@ class grade1 {
     System.out.println("      GRADEBOOK PROGRAM\n");
     System.out.println("(1) Display Fighter");
     System.out.println("(2) Add Fighter");
-    System.out.println("(3) Add Students");
+    System.out.println("(3) Delete Fighter");
     System.out.println("(4) Select Course");
     System.out.println("(q) Quit\n");
   }
@@ -71,30 +71,24 @@ class grade1 {
     stmt.close();
   }
 
-  void add_students(Connection conn) 
+  void delete_fighter(Connection conn) 
       throws SQLException, IOException {
 
-    String id, ln, fn, mi;
-    PreparedStatement stmt = conn.prepareStatement(
-      "insert into students values (?, ?, ?, ?)"  ); 
-    do {
-      id = readEntry("ID (0 to stop): ");
-      if (id.equals("0"))
-        break;
-      ln = readEntry("Last  Name    : ");
-      fn = readEntry("First Name    : ");
-      mi = readEntry("Middle Initial: ");
+      String nickname = readEntry("Nickname: ");
+      
+
+      String query = "delete from FIGHTER where nickname=" + nickname;
+
+      System.out.println(query + "\n");    
+      Statement stmt = conn.createStatement (); 
       try {
-        stmt.setString(1,id);
-        stmt.setString(2,fn);
-        stmt.setString(3,ln);
-        stmt.setString(4,mi);
-        stmt.executeUpdate();
+        stmt.executeUpdate(query);
       } catch (SQLException e) {
-        System.out.println("Student was not added! Error!");
+        System.out.println("FIGHTER was not deleted! Failure!");
+        return;
       }
-    } while (true);  
-    stmt.close();
+      System.out.println("FIGHTER was deleted! Success!");
+      stmt.close();
   }
 
   void display(Connection conn) 
