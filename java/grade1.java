@@ -165,8 +165,7 @@ class grade1 {
     for (int i = 1; i <= columnsNumber; i++) {
       String column_name = rsmd.getColumnName(i);
       System.out.print(column_name);
-      System.out.print(column_name.length());
-      for (int j = 1; j <= 20 - column_name.length(); i++) {
+      for (int j = 1; j <= 20 - column_name.length(); j++) {
         System.out.print(" ");
       }
     }
