@@ -43,52 +43,38 @@ class grade1 {
       switch (ch) {
         case '1' : 
           column_name = "nickname";
-          System.out.println("Fighter's current nickname: ");
-          nickname = System.in.read();
-          System.out.println("New Nickname: ");
-          new_val = System.in.read();
+          nickname = readEntry("Fighter's current nickname: ");
+          new_val = readEntry("New Nickname: ");
           break;
         case '2' : 
           column_name = "fname";
-          System.out.println("Fighter's current nickname: ");
-          nickname = System.in.read();
-          System.out.println("New First Name: ");
-          new_val = System.in.read();
+          nickname = readEntry("Fighter's current nickname: ");
+          new_val = readEntry("New First Name: ");
           break;
         case '3' : 
           column_name = "lname";
-          System.out.println("Fighter's current nickname: ");
-          nickname = System.in.read();
-          System.out.println("New Last Name: ");
-          new_val = System.in.read();
+          nickname = readEntry("Fighter's current nickname: ");
+          new_val = readEntry("New Last Name: ");
           break;
         case '4' : 
           column_name = "wins";
-          System.out.println("Fighter's current nickname: ");
-          nickname = System.in.read();
-          System.out.println("How many wins: ");
-          new_val = System.in.read();
+          nickname = readEntry("Fighter's current nickname: ");
+          new_val = readEntry("How many wins: ");
           break;
         case '5' : 
           column_name = "losses";
-          System.out.println("Fighter's current nickname: ");
-          nickname = System.in.read();
-          System.out.println("How many losses: ");
-          new_val = System.in.read();
+          nickname = readEntry("Fighter's current nickname: ");
+          new_val = readEntry("How many losses: ");
           break;
         case '6' : 
           column_name = "draw";
-          System.out.println("Fighter's current nickname: ");
-          nickname = System.in.read();
-          System.out.println("How many draws: ");
-          new_val = System.in.read();
+          nickname = readEntry("Fighter's current nickname: ");
+          new_val = readEntry("How many draws: ");
           break;
         case '7' : 
           column_name = "no_contest";
-          System.out.println("Fighter's current nickname: ");
-          nickname = System.in.read();
-          System.out.println("How many no contests: ");
-          new_val = System.in.read();
+          nickname = readEntry("Fighter's current nickname: ");
+          new_val = readEntry("How many no contests: ");
           break;
         case 'q' : done = true;
                    break;
