@@ -168,12 +168,20 @@ class grade1 {
       for (int j = 1; j <= 20 - column_name.length(); j++) {
         System.out.print(" ");
       }
+      System.out.print("|");
     }
+
     System.out.println("");
     while (rset.next()) {
       for (int i = 1; i <= columnsNumber; i++) {
-          if (i > 1) System.out.print(",  ");
           String columnValue = rset.getString(i);
+          if (i > 1) {
+            for (int j = 1; j <= 20 - columnValue.length(); j++) {
+              System.out.print(" ");
+            }
+            System.out.print("|");
+          }
+          
           System.out.print(columnValue);
       }
       System.out.println("");
