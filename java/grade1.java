@@ -24,6 +24,7 @@ class grade1 {
 
     boolean done;
     String column_name, new_val, nickname;
+    char ch,ch1;
 
     done = false;
     do {
