@@ -157,16 +157,27 @@ class grade1 {
      
     Statement stmt = conn.createStatement (); 
     ResultSet rset = stmt.executeQuery(query);
+    ResultSetMetaData rsmd = rset.getMetaData();
+    int columnsNumber = rsmd.getColumnCount();
+
     System.out.println("");
-    System.out.println(rset + "\n");
-    while (rset.next ()) { 
-      System.out.println(rset.getString(1) + "   " +
-                         rset.getString(2) + "   " +
-                         rset.getString(3) + "   " +
-                         rset.getString(4) + "   " +
-                         rset.getString(5) + "   " +
-                         rset.getString(6) + "   " );
-    } 
+
+    while (rset.next()) {
+      for (int i = 1; i <= columnsNumber; i++) {
+          if (i > 1) System.out.print(",  ");
+          String columnValue = resultSet.getString(i);
+          System.out.print(columnValue + " " + rsmd.getColumnName(i));
+      }
+      System.out.println("");
+  }
+    // while (rset.next ()) { 
+    //   System.out.println(rset.getString(1) + "   " +
+    //                      rset.getString(2) + "   " +
+    //                      rset.getString(3) + "   " +
+    //                      rset.getString(4) + "   " +
+    //                      rset.getString(5) + "   " +
+    //                      rset.getString(6) + "   " );
+    // } 
   }
 
   //readEntry function -- to read input string
