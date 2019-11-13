@@ -175,12 +175,11 @@ class grade1 {
     while (rset.next()) {
       for (int i = 1; i <= columnsNumber; i++) {
           String columnValue = rset.getString(i);
+          System.out.print(columnValue);
           for (int j = 1; j <= 20 - columnValue.length(); j++) {
             System.out.print(" ");
           }
           System.out.print("|");
-          
-          System.out.print(columnValue);
       }
       System.out.println("");
     }
