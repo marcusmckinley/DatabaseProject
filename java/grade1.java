@@ -150,8 +150,7 @@ class grade1 {
     throws SQLException, IOException {
 
     String query1 = "select *" +
-                    "from FIGHTER " +
-                    "where wins = 18";
+                    "from FIGHTER ";
     String query;
     query = query1;
      
@@ -172,7 +171,7 @@ class grade1 {
     }
 
     System.out.println("");
-    for (int i = 1; i < 170; i++) {
+    for (int i = 1; i < 169; i++) {
       System.out.print("-");
     }
     System.out.println("");
