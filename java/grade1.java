@@ -77,7 +77,7 @@ class grade1 {
       String nickname = readEntry("Nickname: ");
       
 
-      String query = "delete from FIGHTER where nickname=" + nickname;
+      String query = "delete from FIGHTER where nickname='" + nickname + "'";
 
       System.out.println(query + "\n");    
       Statement stmt = conn.createStatement (); 
