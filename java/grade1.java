@@ -163,7 +163,7 @@ class grade1 {
     System.out.println("");
 
     for (int i = 1; i <= columnsNumber; i++) {
-      System.out.println(rsmd.getColumnName(i) + "   ");
+      System.out.print(rsmd.getColumnName(i) + "   ");
     }
     while (rset.next()) {
       for (int i = 1; i <= columnsNumber; i++) {
@@ -172,7 +172,7 @@ class grade1 {
           System.out.print(columnValue);
       }
       System.out.println("");
-  }
+    }
     // while (rset.next ()) { 
     //   System.out.println(rset.getString(1) + "   " +
     //                      rset.getString(2) + "   " +
