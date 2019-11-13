@@ -172,7 +172,7 @@ class grade1 {
     }
 
     System.out.println("");
-    for (int i = 1; i < 180; i++) {
+    for (int i = 1; i < 160; i++) {
       System.out.print("-");
     }
     System.out.println("");
