@@ -11,7 +11,7 @@ import java.io.*;
 class grade1 { 
 
   void print_menu() {
-    System.out.println("      GRADEBOOK PROGRAM\n");
+    System.out.println("      FIGHTER PROGRAM\n");
     System.out.println("(1) Display Fighter");
     System.out.println("(2) Add Fighter");
     System.out.println("(3) Delete Fighter");
@@ -163,11 +163,6 @@ class grade1 {
                          rset.getString(2) + "   " +
                          rset.getString(3));
     } 
-    
-    grade2 g2 = new grade2();
-
-    
-
   }
 
   //readEntry function -- to read input string
