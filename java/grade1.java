@@ -58,7 +58,8 @@ class grade1 {
             "'" + nickname + "'," + champion_status + "," + 
             "'" + fname + "'," + lname + "," + 
             wins + "," + losses + "," + draw + "," + no_contest + ")";
-           
+
+    System.out.println(query + "\n");    
     Statement stmt = conn.createStatement (); 
     try {
       stmt.executeUpdate(query);
