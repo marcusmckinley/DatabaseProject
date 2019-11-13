@@ -165,7 +165,7 @@ class grade1 {
     while (rset.next()) {
       for (int i = 1; i <= columnsNumber; i++) {
           if (i > 1) System.out.print(",  ");
-          String columnValue = resultSet.getString(i);
+          String columnValue = rset.getString(i);
           System.out.print(columnValue + " " + rsmd.getColumnName(i));
       }
       System.out.println("");
