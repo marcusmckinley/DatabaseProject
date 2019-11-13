@@ -13,7 +13,7 @@ class grade1 {
   void print_menu() {
     System.out.println("      GRADEBOOK PROGRAM\n");
     System.out.println("(1) Display Fighter");
-    System.out.println("(2) Add Course");
+    System.out.println("(2) Add Fighter");
     System.out.println("(3) Add Students");
     System.out.println("(4) Select Course");
     System.out.println("(q) Quit\n");
@@ -42,30 +42,31 @@ class grade1 {
     System.out.println("Added Catalog Entry");
   }
 
-  void add_course(Connection conn) 
+  void add_fighter(Connection conn) 
         throws SQLException, IOException {
 
-    String term_in = readEntry("Term         : ");
-    String ls      = readEntry("Line Number  : ");
-    String cnum    = readEntry("Course Number: ");
-    String as      = readEntry("A Cutoff     : ");
-    String bs      = readEntry("B Cutoff     : ");
-    String cs      = readEntry("C Cutoff     : ");
-    String ds      = readEntry("D Cutoff     : ");
+    String nickname = readEntry("Nickname: ");
+    String champion_status = readEntry("Champion Status (C or N): ");
+    String fname = readEntry("First Name: ");
+    String lname = readEntry("Last Name: ");
+    String wins = readEntry("Wins: ");
+    String losses = readEntry("Losses: ");
+    String draw = readEntry("Draw: ");
+    String no_contest = readEntry("No Contest: ");
 
-    String query = "insert into courses values (" +
-            "'" + term_in + "'," + ls + "," + 
-            "'" + cnum + "'," + as + "," + 
-            bs + "," + cs + "," + ds + ")";
+    String query = "insert into FIGHTER values (" +
+            "'" + nickname + "'," + champion_status + "," + 
+            "'" + fname + "'," + lname + "," + 
+            wins + "," + losses + "," + draw + "," + no_contest + ")";
            
     Statement stmt = conn.createStatement (); 
     try {
       stmt.executeUpdate(query);
     } catch (SQLException e) {
-      System.out.println("Course was not added! Failure!");
+      System.out.println("FIGHTER was not added! Failure!");
       return;
     }
-    System.out.println("Course was added! Success!");
+    System.out.println("FIGHTER was added! Success!");
     stmt.close();
   }
 
@@ -112,8 +113,6 @@ class grade1 {
                          rset.getString(2) + "   " +
                          rset.getString(3));
     } 
-    System.out.println("");
-    String ls = readEntry("Select a course line number: ");
     
     grade2 g2 = new grade2();
 

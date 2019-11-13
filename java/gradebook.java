@@ -41,13 +41,13 @@ class gradebook {
       ch = (char) System.in.read();
       ch1 = (char) System.in.read();
       switch (ch) {
-        case '1' : g1.add_catalog(conn);
+        case '1' : g1.display(conn);
                    break;
-        case '2' : g1.add_course(conn);
+        case '2' : g1.add_fighter(conn);
                    break;
         case '3' : g1.add_students(conn);
                    break;
-        case '4' : g1.display(conn);
+        case '4' : g1.add_catalog(conn);
                    break;
         case 'q' : done = true;
                    break;
