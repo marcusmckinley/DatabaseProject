@@ -47,7 +47,7 @@ class gradebook {
                    break;
         case '3' : g1.add_students(conn);
                    break;
-        case '4' : g1.select_course(conn);
+        case '4' : g1.display(conn);
                    break;
         case 'q' : done = true;
                    break;

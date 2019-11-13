@@ -12,7 +12,7 @@ class grade1 {
 
   void print_menu() {
     System.out.println("      GRADEBOOK PROGRAM\n");
-    System.out.println("(1) Add Catalog");
+    System.out.println("(1) Display Fighter");
     System.out.println("(2) Add Course");
     System.out.println("(3) Add Students");
     System.out.println("(4) Select Course");
@@ -95,15 +95,14 @@ class grade1 {
     stmt.close();
   }
 
-  void select_course(Connection conn) 
+  void display(Connection conn) 
     throws SQLException, IOException {
 
-    String query1 = "select distinct lineno,courses.cno,ctitle " +
-                    "from courses,catalog " +
-                    "where courses.cno = catalog.cno and term = '";
+    String query1 = "select *" +
+                    "from FIGHTER " +
+                    "where wins = 18";
     String query;
-    String term_in = readEntry("Term: ");
-    query = query1 + term_in + "'";
+    query = query1;
      
     Statement stmt = conn.createStatement (); 
     ResultSet rset = stmt.executeQuery(query);
