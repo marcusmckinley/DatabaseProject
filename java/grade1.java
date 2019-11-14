@@ -167,6 +167,10 @@ class grade1 {
     int columnsNumber = rsmd.getColumnCount();
 
     System.out.println("");
+    for (int i = 1; i < 185; i++) {
+      System.out.print("-");
+    }
+    System.out.println("");
 
     for (int i = 1; i <= columnsNumber; i++) {
       String column_name = rsmd.getColumnName(i);
@@ -194,14 +198,6 @@ class grade1 {
       }
       System.out.println("");
     }
-    // while (rset.next ()) { 
-    //   System.out.println(rset.getString(1) + "   " +
-    //                      rset.getString(2) + "   " +
-    //                      rset.getString(3) + "   " +
-    //                      rset.getString(4) + "   " +
-    //                      rset.getString(5) + "   " +
-    //                      rset.getString(6) + "   " );
-    // } 
   }
 
   //readEntry function -- to read input string
