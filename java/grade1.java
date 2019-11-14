@@ -27,7 +27,8 @@ class grade1 {
         throws SQLException, IOException {
           
     String name = readEntry("Camp Name: ");
-    String country = readEntry("\nWhat Country: ");
+    System.out.println("Name: " + name);
+    String country = readEntry("What Country: ");
     String state = readEntry("What State: ");
     String fighter = readEntry("Fighter Nickname: ");
 
