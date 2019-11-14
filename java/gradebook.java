@@ -51,6 +51,8 @@ class gradebook {
                    break;
         case '5' : g1.add_camp(conn);
                    break;
+        case '6' : g1.add_coach(conn);
+                   break;
         case 'q' : done = true;
                    break;
         default  : System.out.println("Type in option again");

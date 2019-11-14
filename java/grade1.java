@@ -23,6 +23,48 @@ class grade1 {
     System.out.println("(q) Quit\n");
   }
 
+  void add_coach(Connection conn) 
+        throws SQLException, IOException {
+          
+    String fname = readEntry("");
+    fname = readEntry("First Name: ");
+    String lname = readEntry("Last Name: ");
+    String id = readEntry("Id: ");
+    String camp = readEntry("Camp: ");
+    String expertise = readEntry("Expertise: ");
+
+    String query = "insert into coach values (" +
+            "'" + fname + "'," + 
+            "'" + lname + "'," + 
+            id + "," +
+            "'" + camp + "'" +")";
+ 
+    System.out.println(query);
+    Statement stmt = conn.createStatement (); 
+    try {
+      stmt.executeUpdate(query);
+    } catch (SQLException e) {
+      System.out.println("COACH was not added! Failure!");
+      return;
+    }
+    System.out.println("COACH was added! Success!");
+    stmt.close();
+
+    query = "insert into expertise values (" +
+    id + "," + "'" + expertise + "'" + ")";
+
+    System.out.println(query);
+    stmt = conn.createStatement (); 
+    try {
+      stmt.executeUpdate(query);
+    } catch (SQLException e) {
+      System.out.println("EXPERTISE was not added! Failure!");
+      return;
+    }
+    System.out.println("EXPERTISE was added! Success!");
+    stmt.close();
+  }
+
   void add_camp(Connection conn) 
         throws SQLException, IOException {
           
