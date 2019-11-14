@@ -26,8 +26,8 @@ class grade1 {
   void add_camp(Connection conn) 
         throws SQLException, IOException {
           
-    String name = readEntry("Camp Name: ");
-    System.out.println("Name: " + name);
+    String name = readEntry("");
+    name = readEntry("Camp Name: ");
     String country = readEntry("What Country: ");
     String state = readEntry("What State: ");
     String fighter = readEntry("Fighter Nickname: ");
