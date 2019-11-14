@@ -25,7 +25,8 @@ class grade1 {
 
   void add_camp(Connection conn) 
         throws SQLException, IOException {
-
+          
+    System.out.flush();
     String name = readEntry("Camp Name: ");
     String country = readEntry("What Country: ");
     String state = readEntry("What State: ");
@@ -82,7 +83,6 @@ class grade1 {
       System.out.print("Type in your option:");
       System.out.flush();
       ch = (char) System.in.read();
-      System.out.flush();
       switch (ch) {
         case '1' : 
           column_name = "nickname";
