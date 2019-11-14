@@ -49,6 +49,8 @@ class gradebook {
                    break;
         case '4' : g1.update_fighter(conn);
                    break;
+        case '5' : g1.add_camp(conn);
+                   break;
         case 'q' : done = true;
                    break;
         default  : System.out.println("Type in option again");

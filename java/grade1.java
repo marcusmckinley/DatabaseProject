@@ -10,6 +10,7 @@ import java.io.*;
 
 class grade1 { 
 
+  
   void print_menu() {
     System.out.println("");
     System.out.println("      FIGHTER PROGRAM\n");
@@ -17,7 +18,47 @@ class grade1 {
     System.out.println("(2) Add Fighter");
     System.out.println("(3) Delete Fighter");
     System.out.println("(4) Update Fighter");
+    System.out.println("(5) Add Camp");
+    System.out.println("(6) Add Coach");
     System.out.println("(q) Quit\n");
+  }
+
+  void add_camp(Connection conn) 
+        throws SQLException, IOException {
+
+    String name = readEntry("Camp Name: ");
+    String country = readEntry("What Country: ");
+    String state = readEntry("What State: ");
+    String fighter = readEntry("Fighter Nickname: ");
+
+    String query = "insert into camp values (" +
+            "'" + name + "'," + "'" + country + "'" + "," + 
+            "'" + state + "'" + ")";
+ 
+    System.out.println(query);
+    Statement stmt = conn.createStatement (); 
+    try {
+      stmt.executeUpdate(query);
+    } catch (SQLException e) {
+      System.out.println("CAMP was not added! Failure!");
+      return;
+    }
+    System.out.println("CAMP was added! Success!");
+    stmt.close();
+
+    query = "insert into fighter_camp values (" +
+    "'" + fighter + "'," + "'" + name + "'" + ")";
+
+    System.out.println(query);
+    stmt = conn.createStatement (); 
+    try {
+      stmt.executeUpdate(query);
+    } catch (SQLException e) {
+      System.out.println("FIGHTER_CAMP was not added! Failure!");
+      return;
+    }
+    System.out.println("FIGHTER_CAMP was added! Success!");
+    stmt.close();
   }
 
   void update_fighter(Connection conn) 
