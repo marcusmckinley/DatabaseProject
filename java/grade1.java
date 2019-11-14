@@ -11,6 +11,7 @@ import java.io.*;
 class grade1 { 
 
   void print_menu() {
+    System.out.println("");
     System.out.println("      FIGHTER PROGRAM\n");
     System.out.println("(1) Display Fighter");
     System.out.println("(2) Add Fighter");
@@ -24,7 +25,7 @@ class grade1 {
 
     boolean done;
     String column_name = "", new_val = "", nickname = "";
-    char ch,ch1;
+    char ch;
 
     done = false;
     do {
@@ -91,8 +92,7 @@ class grade1 {
     } while (!done);
 
     String query = "update FIGHTER set " + column_name + " = '" + new_val + "' where nickname = '" + nickname + "'";
-
-    System.out.println(query + "\n");    
+   
     Statement stmt = conn.createStatement (); 
     try {
       stmt.executeUpdate(query);
@@ -120,8 +120,7 @@ class grade1 {
             "'" + nickname + "'," + "'" + champion_status + "'" + "," + 
             "'" + fname + "','" + lname + "'," + 
             wins + "," + losses + "," + draw + "," + no_contest + ")";
-
-    System.out.println(query + "\n");    
+ 
     Statement stmt = conn.createStatement (); 
     try {
       stmt.executeUpdate(query);
@@ -140,8 +139,7 @@ class grade1 {
       
 
       String query = "delete from FIGHTER where nickname='" + nickname + "'";
-
-      System.out.println(query + "\n");    
+  
       Statement stmt = conn.createStatement (); 
       try {
         stmt.executeUpdate(query);

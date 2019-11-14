@@ -15,8 +15,7 @@ class gradebook {
 
     grade1 g1 = new grade1();
     boolean done;
-    char ch,ch1;
-    byte num = 0;
+    char ch;
 
     try {
       Class.forName ("oracle.jdbc.driver.OracleDriver");
@@ -41,7 +40,6 @@ class gradebook {
       System.out.print("Type in your option:");
       System.out.flush();
       ch = (char) System.in.read();
-      ch1 = (char) System.in.read();
       switch (ch) {
         case '1' : g1.display(conn);
                    break;
