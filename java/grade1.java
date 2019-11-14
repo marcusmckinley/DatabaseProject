@@ -82,6 +82,7 @@ class grade1 {
       System.out.print("Type in your option:");
       System.out.flush();
       ch = (char) System.in.read();
+      System.out.flush();
       switch (ch) {
         case '1' : 
           column_name = "nickname";
