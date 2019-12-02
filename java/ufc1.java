@@ -316,8 +316,9 @@ class ufc1 {
 
   void add_fighter(Connection conn) 
         throws SQLException, IOException {
-
-    String nickname = readEntry("Nickname: ");
+    
+    String nickname = readEntry("");
+    nickname = readEntry("Nickname: ");
     String champion_status = readEntry("Champion Status (C or N): ");
     String fname = readEntry("First Name: ");
     String lname = readEntry("Last Name: ");
