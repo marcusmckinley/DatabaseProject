@@ -18,12 +18,12 @@ class grade1 {
     System.out.println("(2) Add Fighter");
     System.out.println("(3) Delete Fighter");
     System.out.println("(4) Update Fighter");
-    System.out.println("(5) Add Camp");
-    System.out.println("(6) Add Coach");
+    System.out.println("(5) Fighter Report");
+    System.out.println("(6) Coach Report");
     System.out.println("(q) Quit\n");
   }
 
-  void add_coach(Connection conn) 
+  void coach_report(Connection conn) 
         throws SQLException, IOException {
           
     String fname = readEntry("");
@@ -65,43 +65,18 @@ class grade1 {
     stmt.close();
   }
 
-  void add_camp(Connection conn) 
+  void fighter_report(Connection conn) 
         throws SQLException, IOException {
           
-    String name = readEntry("");
-    name = readEntry("Camp Name: ");
-    String country = readEntry("What Country: ");
-    String state = readEntry("What State: ");
-    String fighter = readEntry("Fighter Nickname: ");
+    String nickname = readEntry("");
+    nickname = readEntry("Fighter Nickname: ");
 
-    String query = "insert into camp values (" +
-            "'" + name + "'," + "'" + country + "'" + "," + 
-            "'" + state + "'" + ")";
+    String query = "select fname, lname from fighter where nickname = '" +nickname+ "';";
  
     System.out.println(query);
     Statement stmt = conn.createStatement (); 
-    try {
-      stmt.executeUpdate(query);
-    } catch (SQLException e) {
-      System.out.println("CAMP was not added! Failure!");
-      return;
-    }
-    System.out.println("CAMP was added! Success!");
-    stmt.close();
-
-    query = "insert into fighter_camp values (" +
-    "'" + fighter + "'," + "'" + name + "'" + ")";
-
-    System.out.println(query);
-    stmt = conn.createStatement (); 
-    try {
-      stmt.executeUpdate(query);
-    } catch (SQLException e) {
-      System.out.println("FIGHTER_CAMP was not added! Failure!");
-      return;
-    }
-    System.out.println("FIGHTER_CAMP was added! Success!");
-    stmt.close();
+    ResultSet rset = stmt.executeQuery(query);
+    println("Fighter Name: " + rset.getString(0) + " " + rset.getString(1));
   }
 
   void update_fighter(Connection conn) 

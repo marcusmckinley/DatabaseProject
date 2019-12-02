@@ -49,9 +49,9 @@ class gradebook {
                    break;
         case '4' : g1.update_fighter(conn);
                    break;
-        case '5' : g1.add_camp(conn);
+        case '5' : g1.fighter_report(conn);
                    break;
-        case '6' : g1.add_coach(conn);
+        case '6' : g1.coach_report(conn);
                    break;
         case 'q' : done = true;
                    break;
