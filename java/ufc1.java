@@ -256,42 +256,49 @@ class ufc1 {
       switch (ch) {
         case '1' : 
           column_name = "nickname";
+          nickname = readEntry("");
           nickname = readEntry("Fighter's current nickname: ");
           new_val = readEntry("New Nickname: ");
           done = true;
           break;
         case '2' : 
           column_name = "fname";
+          nickname = readEntry("");
           nickname = readEntry("Fighter's current nickname: ");
           new_val = readEntry("New First Name: ");
           done = true;
           break;
         case '3' : 
           column_name = "lname";
+          nickname = readEntry("");
           nickname = readEntry("Fighter's current nickname: ");
           new_val = readEntry("New Last Name: ");
           done = true;
           break;
         case '4' : 
           column_name = "wins";
+          nickname = readEntry("");
           nickname = readEntry("Fighter's current nickname: ");
           new_val = readEntry("How many wins: ");
           done = true;
           break;
         case '5' : 
           column_name = "losses";
+          nickname = readEntry("");
           nickname = readEntry("Fighter's current nickname: ");
           new_val = readEntry("How many losses: ");
           done = true;
           break;
         case '6' : 
           column_name = "draw";
+          nickname = readEntry("");
           nickname = readEntry("Fighter's current nickname: ");
           new_val = readEntry("How many draws: ");
           done = true;
           break;
         case '7' : 
           column_name = "no_contest";
+          nickname = readEntry("");
           nickname = readEntry("Fighter's current nickname: ");
           new_val = readEntry("How many no contests: ");
           done = true;
