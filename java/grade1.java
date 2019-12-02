@@ -113,6 +113,24 @@ class grade1 {
     while (rset.next ()) { 
       System.out.println("Camp: " + rset.getString(1));
     } 
+
+    query = "Select fs.style From fighter f, fighting_style fs Where f.nickname = fs.fnickname and f.nickname = '"+nickname+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    while (rset.next ()) { 
+      System.out.println("Fighting Style: " + rset.getString(1));
+    } 
+
+    query = "Select wins, losses, draw, no_contest From fighter Where nickname = '"+nickname+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    while (rset.next ()) { 
+      System.out.println("Record: " + rset.getString(1) + " Wins, " + rset.getString(2) + " Losses, " + rset.getString(3) + " Draw, " + rset.getString(4) + " No Contests");
+    } 
   }
 
   void update_fighter(Connection conn) 
