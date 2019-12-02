@@ -77,7 +77,10 @@ class grade1 {
     Statement stmt = conn.createStatement (); 
     ResultSet rset = stmt.executeQuery(query);
     
-    System.out.println("Fighter Name: " + rset.getString(1) + " " + rset.getString(2));
+    System.out.print("Fighter Name: ");
+    while (rset.next ()) { 
+      System.out.print(rset.getString(1) + " " + rset.getString(2) + "\n");
+    } 
   }
 
   void update_fighter(Connection conn) 
