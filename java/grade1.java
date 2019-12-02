@@ -132,7 +132,7 @@ class grade1 {
       System.out.println("Record: " + rset.getString(1) + " Wins, " + rset.getString(2) + " Losses, " + rset.getString(3) + " Draw, " + rset.getString(4) + " No Contests");
     } 
 
-    query = "select fname, lname, wins / (wins + losses) * 100 win_percentage from fighter where nickname = '"+nickname+"'";
+    query = "select wins / (wins + losses) * 100 win_percentage from fighter where nickname = '"+nickname+"'";
  
     stmt = conn.createStatement (); 
     rset = stmt.executeQuery(query);
