@@ -97,8 +97,7 @@ class grade1 {
     rset = stmt.executeQuery(query);
 
     while (rset.next ()) { 
-      System.out.println(rset.getString(1));
-      if (rset.getString(1) == "C") {
+      if (rset.getString(1).indexOf("C") != -1) {
         System.out.println("Champion: Yes");
       }
       else {
