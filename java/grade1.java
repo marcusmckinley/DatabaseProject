@@ -26,43 +26,92 @@ class grade1 {
   void coach_report(Connection conn) 
         throws SQLException, IOException {
           
-    String fname = readEntry("");
-    fname = readEntry("First Name: ");
-    String lname = readEntry("Last Name: ");
-    String id = readEntry("Id: ");
-    String camp = readEntry("Camp: ");
-    String expertise = readEntry("Expertise: ");
-
-    String query = "insert into coach values (" +
-            "'" + fname + "'," + 
-            "'" + lname + "'," + 
-            id + "," +
-            "'" + camp + "'" +")";
- 
-    System.out.println(query);
-    Statement stmt = conn.createStatement (); 
-    try {
-      stmt.executeUpdate(query);
-    } catch (SQLException e) {
-      System.out.println("COACH was not added! Failure!");
-      return;
-    }
-    System.out.println("COACH was added! Success!");
-    stmt.close();
-
-    query = "insert into expertise values (" +
-    id + "," + "'" + expertise + "'" + ")";
-
-    System.out.println(query);
-    stmt = conn.createStatement (); 
-    try {
-      stmt.executeUpdate(query);
-    } catch (SQLException e) {
-      System.out.println("EXPERTISE was not added! Failure!");
-      return;
-    }
-    System.out.println("EXPERTISE was added! Success!");
-    stmt.close();
+          Double a = 0.0;
+          String country = "";
+          String style = "";
+          String id = readEntry("");
+          id = readEntry("Coach ID: ");
+      
+          String query = "select fname, lname from coach where id = " +id+ "";
+       
+          Statement stmt = conn.createStatement (); 
+          ResultSet rset = stmt.executeQuery(query);
+          
+          System.out.println("\nCOACH REPORT");
+          System.out.print("Coach Name: ");
+          while (rset.next ()) { 
+            System.out.print(rset.getString(1) + " " + rset.getString(2) + "\n");
+          } 
+          query = "Select state, country From coach, camp Where name = camp_name and id = "+id+"";
+       
+          stmt = conn.createStatement (); 
+          rset = stmt.executeQuery(query);
+      
+          System.out.print("Coaches In: ");
+          while (rset.next ()) { 
+            country = rset.getString(2);
+            System.out.print(rset.getString(1) + ", " + rset.getString(2) + "\n");
+          } 
+      
+          query = "Select count(*) from fighter f, coach c, fighter_camp fc Where f.nickname = fc.fnickname and fc.camp_name = c.camp_name and f.champion_status = 'C' and c.id = "+id;
+       
+          stmt = conn.createStatement (); 
+          rset = stmt.executeQuery(query);
+      
+          while (rset.next ()) { 
+            System.out.println("Number of Champions Under Coach: " + rset.getString(1));
+          } 
+      
+          query = "Select name From coach, camp Where name = camp_name and id = "+id;
+       
+          stmt = conn.createStatement (); 
+          rset = stmt.executeQuery(query);
+      
+          while (rset.next ()) { 
+            System.out.println("Camp: " + rset.getString(1));
+          } 
+      
+          query = "Select style From coach, expertise Where id = coach_id and id = "+id;
+       
+          stmt = conn.createStatement (); 
+          rset = stmt.executeQuery(query);
+      
+          while (rset.next ()) { 
+            style = rset.getString(1);
+            System.out.println("Expertise: " + rset.getString(1));
+          } 
+      
+          query = "select sum(wins), sum(losses), sum(draw), sum(no_contest) from fighter f, fighter_camp fc, coach c where f.nickname = fc.fnickname and fc.camp_name = c.camp_name and id = "+id;
+       
+          stmt = conn.createStatement (); 
+          rset = stmt.executeQuery(query);
+      
+          while (rset.next ()) { 
+            System.out.println("Record: " + rset.getString(1) + " Wins, " + rset.getString(2) + " Losses, " + rset.getString(3) + " Draw, " + rset.getString(4) + " No Contests");
+          } 
+      
+          query = "select (sum(wins) / (sum(wins) + sum(losses))) * 100 win_percentage from fighter f, fighter_camp fc, coach c where f.nickname = fc.fnickname and fc.camp_name = c.camp_name and id = "+id;
+       
+          stmt = conn.createStatement (); 
+          rset = stmt.executeQuery(query);
+      
+          while (rset.next ()) { 
+            a = Double.parseDouble(rset.getString(1));
+            a = Math.round(a * 100.0) / 100.0;
+            System.out.println("Coach Win Percentage: " + Double.toString(a) + "%");
+          } 
+      
+          query = "Select f.fname, f.lname from fighter f, coach c, fighter_camp fc Where f.nickname = fc.fnickname and fc.camp_name = c.camp_name and c.id = "+id;
+       
+          stmt = conn.createStatement (); 
+          rset = stmt.executeQuery(query);
+      
+          System.out.println("Coaches:");
+          while (rset.next ()) { 
+            System.out.println("  " + rset.getString(1) + " " + rset.getString(2));
+          }
+      
+          
   }
 
   void fighter_report(Connection conn) 
@@ -79,7 +128,7 @@ class grade1 {
     Statement stmt = conn.createStatement (); 
     ResultSet rset = stmt.executeQuery(query);
     
-    System.out.println("Fighter Nickname: " + nickname);
+    System.out.println("\nFIGHTER REPORT \n\nFighter Nickname: " + nickname);
     System.out.print("Fighter Name: ");
     while (rset.next ()) { 
       System.out.print(rset.getString(1) + " " + rset.getString(2) + "\n");
