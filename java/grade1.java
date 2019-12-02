@@ -73,13 +73,23 @@ class grade1 {
 
     String query = "select fname, lname from fighter where nickname = '" +nickname+ "'";
  
-    System.out.println(query);
     Statement stmt = conn.createStatement (); 
     ResultSet rset = stmt.executeQuery(query);
     
+    System.out.println("Fighter Nickname: " + nickname);
     System.out.print("Fighter Name: ");
     while (rset.next ()) { 
       System.out.print(rset.getString(1) + " " + rset.getString(2) + "\n");
+    } 
+    query = "Select state, country From fighter, fighter_camp, camp Where nickname = fnickname and name = camp_name and nickname = '" +nickname+ "'";
+ 
+    System.out.println(query);
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    System.out.print("Fighting Out Of: ");
+    while (rset.next ()) { 
+      System.out.print(rset.getString(1) + ", " + rset.getString(2) + "\n");
     } 
   }
 
