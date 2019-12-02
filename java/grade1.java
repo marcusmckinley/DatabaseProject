@@ -83,13 +83,26 @@ class grade1 {
     } 
     query = "Select state, country From fighter, fighter_camp, camp Where nickname = fnickname and name = camp_name and nickname = '" +nickname+ "'";
  
-    System.out.println(query);
     stmt = conn.createStatement (); 
     rset = stmt.executeQuery(query);
 
     System.out.print("Fighting Out Of: ");
     while (rset.next ()) { 
       System.out.print(rset.getString(1) + ", " + rset.getString(2) + "\n");
+    } 
+
+    query = "select champion_status from fighter where nickname = '"+nickname+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    while (rset.next ()) { 
+      if (rset.getString(1) == 'C') {
+        System.out.println("Champion: Yes");
+      }
+      else {
+        System.out.println("Champion: No");
+      }
     } 
   }
 
