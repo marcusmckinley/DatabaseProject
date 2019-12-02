@@ -68,6 +68,8 @@ class grade1 {
   void fighter_report(Connection conn) 
         throws SQLException, IOException {
           
+    String country = "";
+    String style = "";
     String nickname = readEntry("");
     nickname = readEntry("Fighter Nickname: ");
 
@@ -88,6 +90,7 @@ class grade1 {
 
     System.out.print("Fighting Out Of: ");
     while (rset.next ()) { 
+      country = rset.getString(2);
       System.out.print(rset.getString(1) + ", " + rset.getString(2) + "\n");
     } 
 
@@ -120,6 +123,7 @@ class grade1 {
     rset = stmt.executeQuery(query);
 
     while (rset.next ()) { 
+      style = rset.getString(1);
       System.out.println("Fighting Style: " + rset.getString(1));
     } 
 
@@ -150,6 +154,33 @@ class grade1 {
     while (rset.next ()) { 
       System.out.println("  " + rset.getString(1) + " " + rset.getString(2));
     }
+
+    query = "select (sum(wins) / (sum(wins) + sum(losses))) * 100 striker_win_percentage from fighter f, fighting_style fs where f.nickname = fs.fnickname and fs.style = '"+style+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    while (rset.next ()) { 
+      System.out.println("\nAverage "+style+" Win Percentage: " + rset.getString(1) + "%");
+    } 
+
+    query = "Select count(*) From fighter, fighting_style Where champion_status = 'C' and nickname = fnickname and style = '"+style+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    while (rset.next ()) { 
+      System.out.println("Number of "+style+" Champions: " + rset.getString(1));
+    } 
+
+    query = "select (sum(wins) / (sum(wins) + sum(losses))) * 100 striker_win_percentage from fighter f, fighter_camp fc, camp c where c.name = fc.camp_name and fc.fnickname = f.nickname and c.country = '"+country+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    while (rset.next ()) { 
+      System.out.println("\n"+country+" Average Win Percentage: " + rset.getString(1) + "%");
+    } 
   }
 
   void update_fighter(Connection conn) 
