@@ -68,6 +68,7 @@ class grade1 {
   void fighter_report(Connection conn) 
         throws SQLException, IOException {
           
+    Float a = 0.0;
     String country = "";
     String style = "";
     String nickname = readEntry("");
@@ -161,7 +162,9 @@ class grade1 {
     rset = stmt.executeQuery(query);
 
     while (rset.next ()) { 
-      System.out.println("\nAverage "+style+" Win Percentage: " + rset.getString(1) + "%");
+      a = Float.parseFloat(rset.getString(1));
+      a = Math.round(a * 100.0) / 100.0;
+      System.out.println("\nAverage "+style+" Win Percentage: " + Float.toString(a) + "%");
     } 
 
     query = "Select count(*) From fighter, fighting_style Where champion_status = 'C' and nickname = fnickname and style = '"+style+"'";
