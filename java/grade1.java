@@ -143,7 +143,9 @@ class grade1 {
     rset = stmt.executeQuery(query);
 
     while (rset.next ()) { 
-      System.out.println("Win Percentage: " + rset.getString(1) + "%");
+      a = Double.parseDouble(rset.getString(1));
+      a = Math.round(a * 100.0) / 100.0;
+      System.out.println("Win Percentage: " + Double.toString(a) + "%");
     } 
 
     query = "Select c.fname, c.lname From fighter f, coach c, fighter_camp fc Where f.nickname = fc.fnickname and fc.camp_name = c.camp_name and f.nickname = '"+nickname+"'";
@@ -182,7 +184,9 @@ class grade1 {
     rset = stmt.executeQuery(query);
 
     while (rset.next ()) { 
-      System.out.println("\n"+country+" Average Win Percentage: " + rset.getString(1) + "%");
+      a = Double.parseDouble(rset.getString(1));
+      a = Math.round(a * 100.0) / 100.0;
+      System.out.println("\n"+country+" Average Win Percentage: " + Double.toString(a) + "%");
     } 
   }
 
