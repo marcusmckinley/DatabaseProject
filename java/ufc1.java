@@ -22,7 +22,6 @@ class ufc1 {
 
   void coach_report(Connection conn) 
         throws SQLException, IOException {
-          
           Double a = 0.0;
           String id = readEntry("");
           id = readEntry("Coach ID: ");
@@ -44,7 +43,6 @@ class ufc1 {
       
           System.out.print("Coaches In: ");
           while (rset.next ()) { 
-            country = rset.getString(2);
             System.out.print(rset.getString(1) + ", " + rset.getString(2) + "\n");
           } 
       
@@ -72,7 +70,6 @@ class ufc1 {
           rset = stmt.executeQuery(query);
       
           while (rset.next ()) { 
-            style = rset.getString(1);
             System.out.println("Expertise: " + rset.getString(1));
           } 
       
