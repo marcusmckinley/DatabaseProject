@@ -140,6 +140,16 @@ class grade1 {
     while (rset.next ()) { 
       System.out.println("Win Percentage: " + rset.getString(1) + "%");
     } 
+
+    query = "Select c.fname, c.lname From fighter f, coach c, fighter_camp fc Where f.nickname = fc.fnickname and fc.camp_name = c.camp_name and f.nickname = '"+nickname+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    System.out.println("Coaches:");
+    while (rset.next ()) { 
+      System.out.println("  " + rset.getString(1) + " " + rset.getString(2));
+    }
   }
 
   void update_fighter(Connection conn) 
