@@ -71,7 +71,7 @@ class grade1 {
     String nickname = readEntry("");
     nickname = readEntry("Fighter Nickname: ");
 
-    String query = "select fname, lname from fighter where nickname = '" +nickname+ "';";
+    String query = "select fname, lname from fighter where nickname = '" +nickname+ "'";
  
     System.out.println(query);
     Statement stmt = conn.createStatement (); 
