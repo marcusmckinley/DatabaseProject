@@ -104,6 +104,15 @@ class grade1 {
         System.out.println("Champion: No");
       }
     } 
+
+    query = "Select fc.camp_name From fighter f, fighter_camp fc Where f.nickname = fc.fnickname and f.nickname = '"+nickname+"'";
+ 
+    stmt = conn.createStatement (); 
+    rset = stmt.executeQuery(query);
+
+    while (rset.next ()) { 
+      System.out.println("Camp: " + rset.getString(1));
+    } 
   }
 
   void update_fighter(Connection conn) 
