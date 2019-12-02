@@ -234,6 +234,7 @@ class ufc1 {
   void update_fighter(Connection conn) 
     throws SQLException, IOException {
 
+    String eat = readEntry("");
     boolean done;
     String column_name = "", new_val = "", nickname = "";
     char ch;
@@ -346,7 +347,8 @@ class ufc1 {
   void delete_fighter(Connection conn) 
       throws SQLException, IOException {
 
-      String nickname = readEntry("Nickname: ");
+        String nickname = readEntry("");
+        nickname = readEntry("Nickname: ");
       
 
       String query = "delete from FIGHTER where nickname='" + nickname + "'";
