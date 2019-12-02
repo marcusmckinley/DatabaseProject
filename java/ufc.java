@@ -1,19 +1,17 @@
 /****************************************************************/
-/* GradeBook Application Main class (Section 5.6)               */
-/* Needs grade1.java and grade2.java to be compiled             */
-/* Chapter 5; Oracle Programming -- A Primer                    */
-/*            by R. Sunderraman                                 */
+/* UFC Application Main class                             */
+/* Needs ufc1.java                                              */
 /****************************************************************/
 
 import java.io.*; 
 import java.sql.*;
 
-class gradebook { 
+class ufc { 
 
   public static void main (String args []) 
       throws SQLException, IOException { 
 
-    grade1 g1 = new grade1();
+    ufc1 g1 = new ufc1();
     boolean done;
     char ch;
 

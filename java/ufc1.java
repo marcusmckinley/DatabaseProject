@@ -1,14 +1,11 @@
 /****************************************************************/
-/* GradeBook Application: grade1.java (Section 5.6)             */
-/* Needs grade2.java to be compiled                             */
-/* Chapter 5; Oracle Programming -- A Primer                    */
-/*            by R. Sunderraman                                 */
+/* UFC Application: ufc1.java                                   */
 /****************************************************************/
 
 import java.sql.*; 
 import java.io.*; 
 
-class grade1 { 
+class ufc1 { 
 
   
   void print_menu() {
@@ -27,8 +24,6 @@ class grade1 {
         throws SQLException, IOException {
           
           Double a = 0.0;
-          String country = "";
-          String style = "";
           String id = readEntry("");
           id = readEntry("Coach ID: ");
       
@@ -106,7 +101,7 @@ class grade1 {
           stmt = conn.createStatement (); 
           rset = stmt.executeQuery(query);
       
-          System.out.println("Coaches:");
+          System.out.println("Fighters Coached:");
           while (rset.next ()) { 
             System.out.println("  " + rset.getString(1) + " " + rset.getString(2));
           }
